@@ -1,8 +1,10 @@
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { createRoot } from 'react-dom/client';
+import AppRouter from './routes/AppRouter';
+import UserStore from './stores/UserStore';
+import { StoreContext } from './stores';
 
 createRoot(document.getElementById('root')).render(
-  <>
-    hello world
-  </>,
-)
+  <StoreContext.Provider value={{ userStore: UserStore }}>
+    <AppRouter />
+  </StoreContext.Provider>
+);
