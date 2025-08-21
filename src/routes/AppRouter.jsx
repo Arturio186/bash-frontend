@@ -8,11 +8,7 @@ import { useStore } from '../stores';
 const AppRouter = observer(() => {
   const { userStore } = useStore();
 
-  return (
-    userStore.isAuth ? 
-      <RouterProvider router={createBrowserRouter(privateRoutes)} /> : 
-      <RouterProvider router={createBrowserRouter(publicRoutes)} />
-  );
+  return <RouterProvider router={createBrowserRouter(userStore.isAuth ? privateRoutes : publicRoutes)} />;
 });
 
 export default AppRouter;
