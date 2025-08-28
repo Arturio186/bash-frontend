@@ -6,8 +6,7 @@ import {
   Container,
   TextField,
   Typography,
-  Paper,
-  Link
+  Paper
 } from "@mui/material";
 import {paths} from '../consts';
 
@@ -17,7 +16,6 @@ const Register = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const handleRegister = () => {
-    // Тут вызов API регистрации
     console.log("Регистрация:", { email, password, repeatPassword });
   };
 

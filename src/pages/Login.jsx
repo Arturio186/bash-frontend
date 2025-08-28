@@ -7,20 +7,20 @@ import {
   Container,
   TextField,
   Typography,
-  Paper,
-  Link
+  Paper
 } from "@mui/material";
 
 import { useStore } from "../stores";
 import { paths } from '../consts';
 
 const Login = observer(() => {
-  const { userStore } = useStore();
+  const {userStore, user} = useStore();
+
+  console.log({userStore, user})
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // тут будет запрос на бэкенд, а пока просто авторизуем
     userStore.setIsAuth(true);
   };
 
