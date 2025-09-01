@@ -9,14 +9,23 @@ import {
   Paper
 } from "@mui/material";
 import {paths} from '../consts';
+import {observer} from 'mobx-react-lite';
 
-const Register = () => {
-  const [email, setEmail] = useState("");
+import {useStore} from "../stores";
+
+const Register = observer(() => {
+  const {userStore} = useStore();
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const handleRegister = () => {
-    console.log("Регистрация:", { email, password, repeatPassword });
+    if (password !== repeatPassword) {
+      alert("Пароли не совпадают");
+      return;
+    }
+
+    userStore.register({username, password});
   };
 
   return (
@@ -33,10 +42,10 @@ const Register = () => {
           <TextField
             margin="normal"
             fullWidth
-            label="Email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            label="Логин"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
             margin="normal"
@@ -74,6 +83,6 @@ const Register = () => {
       </Paper>
     </Container>
   );
-};
+});
 
 export default Register;

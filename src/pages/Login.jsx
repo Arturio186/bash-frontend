@@ -14,14 +14,12 @@ import { useStore } from "../stores";
 import { paths } from '../consts';
 
 const Login = observer(() => {
-  const {userStore, user} = useStore();
-
-  console.log({userStore, user})
-  const [email, setEmail] = useState("");
+  const {userStore} = useStore();
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    userStore.setIsAuth(true);
+    userStore.login({username, password});
   };
 
   return (
@@ -38,10 +36,10 @@ const Login = observer(() => {
           <TextField
             margin="normal"
             fullWidth
-            label="Email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            label="Логин"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
             margin="normal"
