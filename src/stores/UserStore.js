@@ -80,13 +80,13 @@ class UserStore {
       return [response.data.hours, response.data.applications];
     } catch (err) {
       if (err.response?.status === 401) {
-        logout();
+        this.logout();
 
         alert('Вы не авторизованы')
 
         return;
       } else if (err.response?.status === 403) {
-        logout();
+        this.logout();
 
         alert('Ваш аккаунт не активирован');
 
