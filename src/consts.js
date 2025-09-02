@@ -5,4 +5,4 @@ export const paths = {
 }
 
 export const backendUrl = 'https://bashbtctest.ru/api';
-export const socketUrl = 'http://bashbtctest.ru';
+export const socketUrl = 'https://bashbtctest.ru';

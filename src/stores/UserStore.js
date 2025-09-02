@@ -93,8 +93,6 @@ class UserStore {
         return;
       }
 
-      console.log(err)
-
       alert(err.response?.data?.message || err.message)
     }
   }
